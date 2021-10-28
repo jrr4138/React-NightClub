@@ -1,14 +1,47 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>Web Assignment 0</title>
-  <meta name="description" content="First web assignment">
-  <meta name="author" content="student name">
+    <meta charset="utf-8">
+    <title>Web Assignment 0</title>
+    <meta name="description" content="First web assignment">
+    <meta name="author" content="student name">
+    <link rel="stylesheet" href="../css/index.css">
+  
+    <script language="javcscript">
+        function menu(id) {
+            x = document.getElementById(id);
+            if(x == "club_arcane") {
+                x.value = "Name: Club Arcane\nLocation: Tonanto\nMusic: Pop"
+            } else if(x == "2") {
+                x.value = "Name: Club Underground\nLocation: Los Angeles\nMusic: Rock"
+            } else if(x == "3") {
+                x.value = "Name: Club Soda\nLocation: Montreal\nMusic: Jazz"
+            } else if(x == "4") {
+                x.value = "Name: Studio 52\nLocation: New York City\nMusic: Pop"
+            } else if(x == "5") {
+                x.value = "Name: Circo's\nLocation: Woodbridge\nMusic: Rock"
+            } else if(x == "6") {
+                x.value = "Name: Paradisio Garage\nLocation: New York City\nMusic: Rock"
+            }
+        }
+    </script>
 </head>
 <body>
-    <font face = "Segoe UI">
-        <p>Hello World!</p>
-    </font>
+    <h1>SWEN-344 Web Assignment 0</h1>
+    <h2>Section 02</h2>
+    <div class="dropdown">
+        <select name="nightclubs" id="nc">
+            <option></option>
+            <option value="club_arcane" onclick="menu(value)">Club Arcane</option>
+            <option id=2 value="club_underground" onclick="menu(id)">Club Underground</option>
+            <option id=3 value="club_soda" onclick="menu(id)">Club Soda</option>
+            <option id=4 value="studio52" onclick="menu(id)">Studio 52</option>
+            <option id=5 value="circos" onclick="menu(id)">Circo's</option>
+            <option id=6 value="paradisio_garage" onclick="menu(id)">Paradisio Garage</option>
+        </select> 
+        <br>
+        <br>
+        <textarea name="textbox" rows="8" cols="30"></textarea>
+    </div>
 </body>
 </html>
