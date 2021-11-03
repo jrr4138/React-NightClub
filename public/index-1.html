@@ -11,10 +11,32 @@
 <body>
     <h1>Nightclub Capacity</h1>
     <h3>Each time someone enters/ leaves, select the club and click the appropriate button</h3>
-    <div id="box">Club Arcane</div>
-    <div id="box">Club Underground</div>
-    <div id="box">Club Soda</div>
-    <div id="box">Studio 52</div>
-    
+    <div id="Arcanebox">Club Arcane<br><p id="ClubArcaneMessage"></p></div>
+    <div id="Undergroundbox">Club Underground<br><p id="ClubUndergroundMessage"></p></div>
+    <div id="Sodabox">Club Soda<br><p id="ClubSodaMessage"></p></div>
+    <div id="Studiobox">Studio 52<br><p id="StudioMessage"></p></div>
+    <br>
+    <p id="ClubArcaneCount">0</p>
+    <p id="ClubUndergroundCount">0</p>
+    <p id="ClubSodaCount">0</p>
+    <p id="Studio52Count">0</p>
+    <br>
+
+    <h2>
+        <input type="radio" id="1" name="club" value="Club Arcane">
+        <label for="1">Club Arcane</label><br>
+        <input type="radio" id="2" name="club" value="Club Underground">
+        <label for="2">Club Underground</label><br>
+        <input type="radio" id="3" name="club" value="Club Soda">
+        <label for="3">Club Soda</label><br>
+        <input type="radio" id="4" name="club" value="Studio 52">
+        <label for="4">Studio 52</label><br>
+        <br>
+        <input type="button" name="+" value="+" onclick="increase()">
+        <input type="button" name="-" value="-" onclick="decrease()">
+    </h2>
+
+
+
 </body>
 </html>

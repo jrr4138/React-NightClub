@@ -4,11 +4,39 @@ body {
     background-color: #f8e5c8;
 }
 
-#box {
+#Arcanebox, #Undergroundbox, #Sodabox, #Studiobox {
+    display: inline-block;
+    font-size: 25px;
     background-color: #cfc ;
     padding: 100px;
-    margin-left: 6%;
+    margin-right: 20px;
     box-shadow: 2px 2px;
     border-radius: 15px;
-    float: left;
+}
+
+h2 {
+    display: inline-block;
+    text-align: left;
+    margin-top: 40px;
+}
+
+input[type="radio"]{
+    height: 20px;
+    width: 20px;
+}
+
+input[type="button"] {
+    font-size: 20px;
+    margin-right: 20px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 50px;
+    padding-left: 50px;
+}
+
+#ClubArcaneCount, #ClubUndergroundCount, #ClubSodaCount, #Studio52Count{
+    display: inline-block;
+    font-size: 50px;
+    margin-left: 10%;
+    margin-right: 9%;
 }

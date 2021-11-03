@@ -1,67 +1,34 @@
-function club1(id) {
-    x = document.getElementById(id);
-    if(x == "club_arcane") {
-        x.value = "Name: Club Arcane\nLocation: Tonanto\nMusic: Pop";
-    } else if(x == "2") {
-        x.value = "Name: Club Underground\nLocation: Los Angeles\nMusic: Rock";
-    } else if(x == "3") {
-        x.value = "Name: Club Soda\nLocation: Montreal\nMusic: Jazz";
-    } else if(x == "4") {
-        x.value = "Name: Studio 52\nLocation: New York City\nMusic: Pop";
-    } else if(x == "5") {
-        x.value = "Name: Circo's\nLocation: Woodbridge\nMusic: Rock";
-    } else if(x == "6") {
-        x.value = "Name: Paradisio Garage\nLocation: New York City\nMusic: Rock";
+GREEN = "Welcome!"
+YELLOW = "Warn the bouncers..."
+RED = "No one allowed in!"
+
+function increase() {
+    var club = document.getElementByName("club");
+    if(club == null){
+
+    }
+    else if(club == document.getElementById("1")){
+        count = document.getElementByName("ClubArcaneCount").innerHTML;
+        if(count == 100){
+            document.getElementById("Arcanebox").style.backgroundColor = "red";
+            document.getElementById("ClubArcaneMessage").innerHTML = RED;
+        }
+        
+        else if(count >= 70 && count < 100){
+            count++;
+            document.getElementById("Arcanebox").style.backgroundColor = "yellow";
+            document.getElementById("ClubArcaneMessage").innerHTML = YELLOW;
+        } 
+        else{
+            count++;
+            document.getElementById("Arcanebox").style.backgroundColor = "green";
+            document.getElementById("ClubArcaneMessage").innerHTML = GREEN;
+        }
+
     }
 }
 
-function club2(id) {
-    x = document.getElementById(id);
-    if(x == "club_arcane") {
-        x.value = "Name: Club Arcane\nLocation: Tonanto\nMusic: Pop";
-    } else if(x == "2") {
-        x.value = "Name: Club Underground\nLocation: Los Angeles\nMusic: Rock";
-    } else if(x == "3") {
-        x.value = "Name: Club Soda\nLocation: Montreal\nMusic: Jazz";
-    } else if(x == "4") {
-        x.value = "Name: Studio 52\nLocation: New York City\nMusic: Pop";
-    } else if(x == "5") {
-        x.value = "Name: Circo's\nLocation: Woodbridge\nMusic: Rock";
-    } else if(x == "6") {
-        x.value = "Name: Paradisio Garage\nLocation: New York City\nMusic: Rock";
-    }
-}
-
-function club3(id) {
-    x = document.getElementById(id);
-    if(x == "club_arcane") {
-        x.value = "Name: Club Arcane\nLocation: Tonanto\nMusic: Pop";
-    } else if(x == "2") {
-        x.value = "Name: Club Underground\nLocation: Los Angeles\nMusic: Rock";
-    } else if(x == "3") {
-        x.value = "Name: Club Soda\nLocation: Montreal\nMusic: Jazz";
-    } else if(x == "4") {
-        x.value = "Name: Studio 52\nLocation: New York City\nMusic: Pop";
-    } else if(x == "5") {
-        x.value = "Name: Circo's\nLocation: Woodbridge\nMusic: Rock";
-    } else if(x == "6") {
-        x.value = "Name: Paradisio Garage\nLocation: New York City\nMusic: Rock";
-    }
-}
-
-function club4(id) {
-    x = document.getElementById(id);
-    if(x == "club_arcane") {
-        x.value = "Name: Club Arcane\nLocation: Tonanto\nMusic: Pop";
-    } else if(x == "2") {
-        x.value = "Name: Club Underground\nLocation: Los Angeles\nMusic: Rock";
-    } else if(x == "3") {
-        x.value = "Name: Club Soda\nLocation: Montreal\nMusic: Jazz";
-    } else if(x == "4") {
-        x.value = "Name: Studio 52\nLocation: New York City\nMusic: Pop";
-    } else if(x == "5") {
-        x.value = "Name: Circo's\nLocation: Woodbridge\nMusic: Rock";
-    } else if(x == "6") {
-        x.value = "Name: Paradisio Garage\nLocation: New York City\nMusic: Rock";
-    }
+function decrease() {
+    var club = document.getElementByName("club");
+    
 }
