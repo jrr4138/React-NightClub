@@ -34,7 +34,7 @@ input[type="button"] {
     padding-left: 50px;
 }
 
-#ClubArcaneCount, #ClubUndergroundCount, #ClubSodaCount, #Studio52Count{
+#ClubArcaneCount, #ClubUndergroundCount, #ClubSodaCount, #StudioCount{
     display: inline-block;
     font-size: 50px;
     margin-left: 10%;
