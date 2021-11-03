@@ -3,18 +3,25 @@ YELLOW = "Warn the bouncers..."
 RED = "No one allowed in!"
 
 function increase() {
-    var club = document.getElementByName("club");
-    if(club == null){
-
+    var clubs = document.getElementsByName("club");
+    selected = null;
+    for (let club of clubs){
+        if (club.checked) {
+            selected = club;
+        }
     }
-    else if(club == document.getElementById("Arcane")){
-        count = document.getElementByName("ClubArcaneCount").innerHTML;
+    if(selected == document.getElementById("Arcane")){
+        count = document.getElementById("ClubArcaneCount").innerHTML;
         if(count == 100){
             document.getElementById("Arcanebox").style.backgroundColor = "red";
             document.getElementById("ClubArcaneMessage").innerHTML = RED;
         }
-        
-        else if(count >= 70 && count < 100){
+        else if(count == 99){
+            count++;
+            document.getElementById("Arcanebox").style.backgroundColor = "red";
+            document.getElementById("ClubArcaneMessage").innerHTML = RED;
+        }
+        else if(count >= 69 && count < 99){
             count++;
             document.getElementById("Arcanebox").style.backgroundColor = "yellow";
             document.getElementById("ClubArcaneMessage").innerHTML = YELLOW;
@@ -27,14 +34,18 @@ function increase() {
         document.getElementById("ClubArcaneCount").innerHTML = count;
     }
 
-    else if(club == document.getElementById("Underground")){
-        count = document.getElementByName("ClubUndergroundCount").innerHTML;
+    if(selected == document.getElementById("Underground")){
+        count = document.getElementById("ClubUndergroundCount").innerHTML;
         if(count == 50){
             document.getElementById("Undergroundbox").style.backgroundColor = "red";
             document.getElementById("ClubUndergroundMessage").innerHTML = RED;
         }
-        
-        else if(count >= 30 && count < 50){
+        else if(count == 49){
+            count++;
+            document.getElementById("Undergroundbox").style.backgroundColor = "red";
+            document.getElementById("ClubUndergroundMessage").innerHTML = RED;
+        }
+        else if(count >= 29 && count < 49){
             count++;
             document.getElementById("Undergroundbox").style.backgroundColor = "yellow";
             document.getElementById("ClubUndergroundMessage").innerHTML = YELLOW;
@@ -47,14 +58,18 @@ function increase() {
         document.getElementById("ClubUndergroundCount").innerHTML = count;
     }
 
-    else if(club == document.getElementById("Soda")){
-        count = document.getElementByName("ClubSodaCount").innerHTML;
+    if(selected == document.getElementById("Soda")){
+        count = document.getElementById("ClubSodaCount").innerHTML;
         if(count == 20){
             document.getElementById("Sodabox").style.backgroundColor = "red";
             document.getElementById("ClubSodaMessage").innerHTML = RED;
         }
-        
-        else if(count >= 12 && count < 20){
+        else if(count == 19){
+            count++;
+            document.getElementById("Sodabox").style.backgroundColor = "red";
+            document.getElementById("ClubSodaMessage").innerHTML = RED;
+        }
+        else if(count >= 11 && count < 19){
             count++;
             document.getElementById("Sodabox").style.backgroundColor = "yellow";
             document.getElementById("ClubSodaMessage").innerHTML = YELLOW;
@@ -67,14 +82,18 @@ function increase() {
         document.getElementById("ClubSodaCount").innerHTML = count;
     }
 
-    else if(club == document.getElementById("Studio")){
-        count = document.getElementByName("StudioCount").innerHTML;
+    if(selected == document.getElementById("Studio")){
+        count = document.getElementById("StudioCount").innerHTML;
         if(count == 52){
             document.getElementById("Studiobox").style.backgroundColor = "red";
             document.getElementById("StudioMessage").innerHTML = RED;
         }
-        
-        else if(count >= 32 && count < 52){
+        else if(count == 51){
+            count++;
+            document.getElementById("Studiobox").style.backgroundColor = "red";
+            document.getElementById("StudioMessage").innerHTML = RED;
+        }
+        else if(count >= 31 && count < 51){
             count++;
             document.getElementById("Studiobox").style.backgroundColor = "yellow";
             document.getElementById("StudioMessage").innerHTML = YELLOW;
@@ -90,17 +109,20 @@ function increase() {
 }
 
 function decrease() {
-    var club = document.getElementByName("club");
-    if(club == null){
-        
+    var clubs = document.getElementsByName("club");
+    selected = null;
+    for (let club of clubs){
+        if (club.checked) {
+            selected = club;
+        }
     }
-    else if(club == document.getElementById("Arcane")){
-        count = document.getElementByName("ClubArcaneCount").innerHTML;
+    if(selected == document.getElementById("Arcane")){
+        count = document.getElementById("ClubArcaneCount").innerHTML;
         if(count == 0){
             document.getElementById("Arcanebox").style.backgroundColor = "green";
             document.getElementById("ClubArcaneMessage").innerHTML = GREEN;
         }
-        else if(count <= 71){
+        else if(count <= 70){
             count--;
             document.getElementById("Arcanebox").style.backgroundColor = "green";
             document.getElementById("ClubArcaneMessage").innerHTML = GREEN;
@@ -110,16 +132,16 @@ function decrease() {
             document.getElementById("Arcanebox").style.backgroundColor = "yellow";
             document.getElementById("ClubArcaneMessage").innerHTML = YELLOW;
         }
+        document.getElementById("ClubArcaneCount").innerHTML = count;
     }
 
-    else if(club == document.getElementById("Underground")){
-        count = document.getElementByName("ClubUndergroundCount").innerHTML;
+    if(selected == document.getElementById("Underground")){
+        count = document.getElementById("ClubUndergroundCount").innerHTML;
         if(count == 0){
             document.getElementById("Undergroundbox").style.backgroundColor = "green";
             document.getElementById("ClubUndergroundMessage").innerHTML = GREEN;
         }
-        
-        else if(count <= 31){
+        else if(count <= 30){
             count--;
             document.getElementById("Undergroundbox").style.backgroundColor = "green";
             document.getElementById("ClubUndergroundMessage").innerHTML = GREEN;
@@ -132,14 +154,13 @@ function decrease() {
         document.getElementById("ClubUndergroundCount").innerHTML = count;
     }
 
-    else if(club == document.getElementById("Soda")){
-        count = document.getElementByName("ClubSodaCount").innerHTML;
+    if(selected == document.getElementById("Soda")){
+        count = document.getElementById("ClubSodaCount").innerHTML;
         if(count == 0){
             document.getElementById("Sodabox").style.backgroundColor = "green";
             document.getElementById("ClubSodaMessage").innerHTML = GREEN;
         }
-        
-        else if(count <= 13){
+        else if(count <= 12){
             count--;
             document.getElementById("Sodabox").style.backgroundColor = "green";
             document.getElementById("ClubSodaMessage").innerHTML = GREEN;
@@ -152,23 +173,22 @@ function decrease() {
         document.getElementById("ClubSodaCount").innerHTML = count;
     }
 
-    else if(club == document.getElementById("Studio")){
-        count = document.getElementByName("StudioCount").innerHTML;
+    if(selected == document.getElementById("Studio")){
+        count = document.getElementById("StudioCount").innerHTML;
         if(count == 0){
             document.getElementById("Studiobox").style.backgroundColor = "green";
-            document.getElementById("ClubStudioMessage").innerHTML = GREEN;
+            document.getElementById("StudioMessage").innerHTML = GREEN;
         }
-        
-        else if(count <= 33){
+        else if(count <= 32){
             count--;
             document.getElementById("Studiobox").style.backgroundColor = "green";
-            document.getElementById("ClubStudioMessage").innerHTML = GREEN;
+            document.getElementById("StudioMessage").innerHTML = GREEN;
         } 
         else{
             count--;
             document.getElementById("Studiobox").style.backgroundColor = "yellow";
-            document.getElementById("ClubStudioMessage").innerHTML = YELLOW;
+            document.getElementById("StudioMessage").innerHTML = YELLOW;
         }
         document.getElementById("StudioCount").innerHTML = count;
-    }    
+    }
 }
