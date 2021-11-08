@@ -4,24 +4,31 @@
     <meta charset="utf-8">
     <title>Web Assignment 0</title>
     <meta name="description" content="First web assignment">
-    <meta name="author" content="student name">
+    <meta name="author" content="Joshua Ross">
     <link rel="stylesheet" href="../css/index.css">
   
     <script language="javcscript">
-        function menu(id) {
-            x = document.getElementById(id);
-            if(x == "club_arcane") {
-                x.value = "Name: Club Arcane\nLocation: Tonanto\nMusic: Pop";
-            } else if(x == "2") {
-                x.value = "Name: Club Underground\nLocation: Los Angeles\nMusic: Rock";
-            } else if(x == "3") {
-                x.value = "Name: Club Soda\nLocation: Montreal\nMusic: Jazz";
-            } else if(x == "4") {
-                x.value = "Name: Studio 52\nLocation: New York City\nMusic: Pop";
-            } else if(x == "5") {
-                x.value = "Name: Circo's\nLocation: Woodbridge\nMusic: Rock";
-            } else if(x == "6") {
-                x.value = "Name: Paradisio Garage\nLocation: New York City\nMusic: Rock";
+        function menu() {
+            var sustenances = document.getElementsByName("suss");
+            selSus = null;
+            for (let sustenance of sustenances){
+                if (sustenance.checked) {
+                    selSus = sustenance;
+                }
+            }
+            var colours = document.getElementsByName("color");
+            selColor = null;
+            for (let colour of colours){
+                if (colour.checked) {
+                    selColor = colour;
+                }
+            }
+            if(selSus == document.getElementById("protein")){
+                text = selSus.innerHTML;
+                if(selColor = document.getElementById("black")){
+                    document.getElementByName("textbox").style.color = "black";
+                    document.getElementByName("textbox").innerHTML = selSus;
+                }
             }
         }
     </script>
@@ -30,18 +37,34 @@
     <h1>SWEN-344 Web Assignment 0</h1>
     <h2>Section 02</h2>
     <div class="dropdown">
-        <select name="nightclubs" id="nc">
+        <select name="suss" id="suss">
             <option></option>
-            <option value="club_arcane" onclick="menu(value)">Club Arcane</option>
-            <option id=2 value="club_underground" onclick="menu(id)">Club Underground</option>
-            <option id=3 value="club_soda" onclick="menu(id)">Club Soda</option>
-            <option id=4 value="studio52" onclick="menu(id)">Studio 52</option>
-            <option id=5 value="circos" onclick="menu(id)">Circo's</option>
-            <option id=6 value="paradisio_garage" onclick="menu(id)">Paradisio Garage</option>
+            <option id="protein" value="protein">Protein</option>
+            <option id="carbs" value="carbs">Carbs</option>
+            <option id="fruits" value="fruits">Fruits</option>
+            <option id="vegetables" value="vegetables">Vegetables</option>
+            <option id="sweets" value="sweets">Sweets</option>
         </select>
-        <br>
-        <br>
-        <textarea name="textbox" rows="8" cols="30"></textarea>
     </div>
+    <br>
+    <div>
+        <input type="radio" id="black" name="color" value="Black" onclick="menu()">
+        <label for="black">Black</label>
+        <br>
+        <input type="radio" id="red" name="color" value="Red" onclick="menu()">
+        <label for="red">Red</label>
+        <br>
+        <input type="radio" id="green" name="color" value="Green" onclick="menu()">
+        <label for="green">Green</label>
+        <br>
+        <input type="radio" id="blue" name="color" value="Blue" onclick="menu()">
+        <label for="blue">Blue</label>
+        <br>
+        <input type="radio" id="purple" name="club" value="Purple" onclick="menu()">
+        <label for="purple">Purple</label>
+        <br>
+        <br>
+    </div>
+    <textarea name="textbox" rows="8" cols="30"></textarea>
 </body>
 </html>
