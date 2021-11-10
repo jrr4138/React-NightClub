@@ -1,8 +1,29 @@
 import React from 'react';
 
 class Clubs extends React.Component{
+    constructor(props) {
+        super(props);
+        this.state = {
+            club: "",
+            count: 0,
+            color: "green"
+        }
+    };
 
-    
+    handleClick(i) {
+        const history = this.state.history.slice(0, this.state.stepNumber + 1);
+        const current = history[history.length - 1];
+        const squares = current.squares.slice();
+        squares[i] = this.state.xIsNext ? 'X' : 'O';
+        this.setState({
+            history: history.concat([{
+                squares: squares,
+            }]),
+            stepNumber: history.length,
+            xIsNext: !this.state.xIsNext,
+        });
+    }
+
 
 
 
@@ -51,20 +72,5 @@ class Clubs extends React.Component{
             </div>
         )
     }
-
-
-
-
-
-    
-
-
-
-
-
-
-
-
 }
-
 export default Clubs;
