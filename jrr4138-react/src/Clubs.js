@@ -1,38 +1,78 @@
 import React from 'react';
 
 class Clubs extends React.Component{
+    
+    GREEN = "Welcome!";
+    YELLOW = "Warn the bouncers...";
+    RED = "No one allowed in!";
+
+    ClubArcaneMessage = this.GREEN;
+    ClubUndergroundMessage = this.GREEN;
+    ClubSodaMessage = this.GREEN;
+    ClubStudioMessage = this.GREEN;
+
     constructor(props) {
         super(props);
         this.state = {
             club: "",
-            count: 0,
-            color: "green"
+            countArcane: 0,
+            countUnderground: 0,
+            countSoda: 0,
+            countStudio: 0,
+            color: "green",
         }
     };
 
     handleClick(i) {
-        const history = this.state.history.slice(0, this.state.stepNumber + 1);
-        const current = history[history.length - 1];
-        const squares = current.squares.slice();
-        squares[i] = this.state.xIsNext ? 'X' : 'O';
-        this.setState({
-            history: history.concat([{
-                squares: squares,
-            }]),
-            stepNumber: history.length,
-            xIsNext: !this.state.xIsNext,
-        });
+        // why is it 3 equals signs??
+        if(i.target.value === "+"){
+            if(this.state.club === "arcane"){
+                if(this.state.countArcane === 100){
+                    this.setState({color: "red"});
+                    this.ClubArcaneMessage = this.RED;
+                }
+                else if(this.state.countArcane === 99){
+                    this.setState({count: this.state.countArcane + 1, color: "red"});
+                    this.ClubArcaneMessage = this.RED;
+                }
+                else if(this.state.countArcane >= 69 && this.state.countArcane < 99){
+                    this.setState({count: this.state.countArcane + 1, color: "yellow"});
+                    this.ClubArcaneMessage = this.YELLOW;
+                }
+                else{
+                    this.setState({countArcane: this.state.countArcane + 1, color: "green"});
+                    this.ClubArcaneMessage = this.GREEN;
+                }
+            }
+        }
+        else if(i.target.value === "-"){
+            if(this.state.club === "arcane"){
+                if(this.state.countArcane === 0){
+                    this.setState({color: "green"});
+                    this.ClubArcaneMessage = this.GREEN;
+                }
+                else if(this.state.countArcane <= 70){
+                    this.setState({count: this.state.countArcane - 1, color: "green"});
+                    this.ClubArcaneMessage = this.GREEN;
+                }
+                else{
+                    this.setState({countArcane: this.state.countArcane - 1, color: "green"});
+                    this.ClubArcaneMessage = this.GREEN;
+                }
+            }
+        }
     }
 
-
-
+    handleChange(i) {
+        this.setState({club: i.target.id});
+    }
 
     render(){
         return(
             <div>
                 <div id="Arcanebox">Club Arcane
                     <br></br>
-                    <p id="ClubArcaneMessage">Welcome!</p>
+                    <p id="ClubArcaneMessage">{this.ClubArcaneMessage}</p>
                 </div>
                 <div id="Undergroundbox">Club Underground
                     <br></br>
@@ -47,27 +87,27 @@ class Clubs extends React.Component{
                     <p id="StudioMessage">Welcome!</p>
                 </div>
                 <br></br>
-                <p id="ClubArcaneCount">0</p>
+                <p id="ClubArcaneCount">{this.state.countArcane}</p>
                 <p id="ClubUndergroundCount">0</p>
                 <p id="ClubSodaCount">0</p>
                 <p id="StudioCount">0</p>
                 <br></br>
                 <h2>
-                    <input type="radio" id="Arcane" name="club" value="Club Arcane"></input>
+                    <input type="radio" id="arcane" name="club" value="Club Arcane" onChange={(i) => this.handleChange(i)}></input>
                     <label for="Arcane">Club Arcane</label>
                     <br></br>
-                    <input type="radio" id="Underground" name="club" value="Club Underground"></input>
+                    <input type="radio" id="underground" name="club" value="Club Underground" onChange={(i) => this.handleChange(i)}></input>
                     <label for="Underground">Club Underground</label>
                     <br></br>
-                    <input type="radio" id="Soda" name="club" value="Club Soda"></input>
+                    <input type="radio" id="soda" name="club" value="Club Soda" onChange={(i) => this.handleChange(i)}></input>
                     <label for="Soda">Club Soda</label>
                     <br></br>
-                    <input type="radio" id="Studio" name="club" value="Studio 52"></input>
+                    <input type="radio" id="studio" name="club" value="Studio 52" onChange={(i) => this.handleChange(i)}></input>
                     <label for="Studio">Studio 52</label>
                     <br></br>
                     <br></br>
-                    <input type="button" name="+" value="+" onclick="increase()"></input>
-                    <input type="button" name="-" value="-" onclick="decrease()"></input>
+                    <input type="button" name="+" value="+" onClick={(i) => this.handleClick(i)}></input>
+                    <input type="button" name="-" value="-" onClick={(i) => this.handleClick(i)}></input>
                 </h2>
             </div>
         )
