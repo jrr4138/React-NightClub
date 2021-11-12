@@ -19,7 +19,10 @@ class Clubs extends React.Component{
             countUnderground: 0,
             countSoda: 0,
             countStudio: 0,
-            color: "green",
+            ArcColor: "box",
+            UndColor: "box",
+            SodColor: "box",
+            StuColor: "box",
         }
     };
 
@@ -28,73 +31,73 @@ class Clubs extends React.Component{
         if(i.target.value === "+"){
             if(this.state.club === "arcane"){
                 if(this.state.countArcane === 100){
-                    this.setState({color: "red"});
+                    this.setState({ArcColor: "red"});
                     this.ClubArcaneMessage = this.RED;
                 }
                 else if(this.state.countArcane === 99){
-                    this.setState({countArcane: this.state.countArcane + 1, color: "red"});
+                    this.setState({countArcane: this.state.countArcane + 1, ArcColor: "red"});
                     this.ClubArcaneMessage = this.RED;
                 }
                 else if(this.state.countArcane >= 69 && this.state.countArcane < 99){
-                    this.setState({countArcane: this.state.countArcane + 1, color: "yellow"});
+                    this.setState({countArcane: this.state.countArcane + 1, ArcColor: "yellow"});
                     this.ClubArcaneMessage = this.YELLOW;
                 }
                 else{
-                    this.setState({countArcane: this.state.countArcane + 1, color: "green"});
+                    this.setState({countArcane: this.state.countArcane + 1, ArcColor: "green"});
                     this.ClubArcaneMessage = this.GREEN;
                 }
             }
             else if(this.state.club === "underground"){
                 if(this.state.countUnderground === 50){
-                    this.setState({color: "red"});
+                    this.setState({UndColor: "red"});
                     this.ClubUndergroundMessage = this.RED;
                 }
                 else if(this.state.countUnderground === 49){
-                    this.setState({countUnderground: this.state.countUnderground + 1, color: "red"});
+                    this.setState({countUnderground: this.state.countUnderground + 1, UndColor: "red"});
                     this.ClubUndergroundMessage = this.RED;
                 }
                 else if(this.state.countUnderground >= 29 && this.state.countUnderground < 49){
-                    this.setState({countUnderground: this.state.countUnderground + 1, color: "yellow"});
+                    this.setState({countUnderground: this.state.countUnderground + 1, UndColor: "yellow"});
                     this.ClubUndergroundMessage = this.YELLOW;
                 }
                 else{
-                    this.setState({countUnderground: this.state.countUnderground + 1, color: "green"});
+                    this.setState({countUnderground: this.state.countUnderground + 1, UndColor: "green"});
                     this.ClubUndergroundMessage = this.GREEN;
                 }
             }
             else if(this.state.club === "soda"){
                 if(this.state.countSoda === 20){
-                    this.setState({color: "red"});
+                    this.setState({SodColor: "red"});
                     this.ClubSodaMessage = this.RED;
                 }
                 else if(this.state.countSoda === 19){
-                    this.setState({countSoda: this.state.countSoda + 1, color: "red"});
+                    this.setState({countSoda: this.state.countSoda + 1, SodColor: "red"});
                     this.ClubSodaMessage = this.RED;
                 }
                 else if(this.state.countSoda >= 11 && this.state.countSoda < 19){
-                    this.setState({countSoda: this.state.countSoda + 1, color: "yellow"});
+                    this.setState({countSoda: this.state.countSoda + 1, SodColor: "yellow"});
                     this.ClubSodaMessage = this.YELLOW;
                 }
                 else{
-                    this.setState({countSoda: this.state.countSoda + 1, color: "green"});
+                    this.setState({countSoda: this.state.countSoda + 1, SodColor: "green"});
                     this.ClubSodaMessage = this.GREEN;
                 }
             }
             else if(this.state.club === "studio"){
                 if(this.state.countStudio === 52){
-                    this.setState({color: "red"});
+                    this.setState({StuColor: "red"});
                     this.ClubStudioMessage = this.RED;
                 }
                 else if(this.state.countStudio === 51){
-                    this.setState({countStudio: this.state.countStudio + 1, color: "red"});
+                    this.setState({countStudio: this.state.countStudio + 1, StuColor: "red"});
                     this.ClubStudioMessage = this.RED;
                 }
                 else if(this.state.countStudio >= 31 && this.state.countStudio < 51){
-                    this.setState({countStudio: this.state.countStudio + 1, color: "yellow"});
+                    this.setState({countStudio: this.state.countStudio + 1, StuColor: "yellow"});
                     this.ClubStudioMessage = this.YELLOW;
                 }
                 else{
-                    this.setState({countStudio: this.state.countStudio + 1, color: "green"});
+                    this.setState({countStudio: this.state.countStudio + 1, StuColor: "green"});
                     this.ClubStudioMessage = this.GREEN;
                 }
             }
@@ -102,57 +105,73 @@ class Clubs extends React.Component{
         else if(i.target.value === "-"){
             if(this.state.club === "arcane"){
                 if(this.state.countArcane === 0){
-                    this.setState({color: "green"});
+                    this.setState({ArcColor: "box"});
+                    this.ClubArcaneMessage = this.GREEN;
+                }
+                else if(this.state.countArcane === 1){
+                    this.setState({countArcane: this.state.countArcane - 1, ArcColor: "box"});
                     this.ClubArcaneMessage = this.GREEN;
                 }
                 else if(this.state.countArcane <= 70){
-                    this.setState({countArcane: this.state.countArcane - 1, color: "green"});
+                    this.setState({countArcane: this.state.countArcane - 1, ArcColor: "green"});
                     this.ClubArcaneMessage = this.GREEN;
                 }
                 else{
-                    this.setState({countArcane: this.state.countArcane - 1, color: "yellow"});
+                    this.setState({countArcane: this.state.countArcane - 1, ArcColor: "yellow"});
                     this.ClubArcaneMessage = this.YELLOW;
                 }
             }
             else if(this.state.club === "underground"){
                 if(this.state.countUnderground === 0){
-                    this.setState({color: "green"});
+                    this.setState({UndColor: "box"});
+                    this.ClubUndergroundMessage = this.GREEN;
+                }
+                else if(this.state.countUnderground === 1){
+                    this.setState({countUnderground: this.state.countUnderground - 1, UndColor: "box"});
                     this.ClubUndergroundMessage = this.GREEN;
                 }
                 else if(this.state.countUnderground <= 30){
-                    this.setState({countUnderground: this.state.countUnderground - 1, color: "green"});
+                    this.setState({countUnderground: this.state.countUnderground - 1, UndColor: "green"});
                     this.ClubUndergroundMessage = this.GREEN;
                 }
                 else{
-                    this.setState({countUnderground: this.state.countUnderground - 1, color: "yellow"});
+                    this.setState({countUnderground: this.state.countUnderground - 1, UndColor: "yellow"});
                     this.ClubUndergroundMessage = this.YELLOW;
                 }
             }
             else if(this.state.club === "soda"){
                 if(this.state.countSoda === 0){
-                    this.setState({color: "green"});
+                    this.setState({SodColor: "box"});
+                    this.ClubSodaMessage = this.GREEN;
+                }
+                else if(this.state.countSoda === 1){
+                    this.setState({countSoda: this.state.countSoda - 1, SodColor: "box"});
                     this.ClubSodaMessage = this.GREEN;
                 }
                 else if(this.state.countSoda <= 12){
-                    this.setState({countSoda: this.state.countSoda - 1, color: "green"});
+                    this.setState({countSoda: this.state.countSoda - 1, SodColor: "green"});
                     this.ClubSodaMessage = this.GREEN;
                 }
                 else{
-                    this.setState({countSoda: this.state.countSoda - 1, color: "yellow"});
+                    this.setState({countSoda: this.state.countSoda - 1, SodColor: "yellow"});
                     this.ClubSodaMessage = this.YELLOW;
                 }
             }
             else if(this.state.club === "studio"){
                 if(this.state.countStudio === 0){
-                    this.setState({color: "green"});
+                    this.setState({StuColor: "box"});
+                    this.ClubStudioMessage = this.GREEN;
+                }
+                else if(this.state.countStudio === 1){
+                    this.setState({countStudio: this.state.countStudio - 1, StuColor: "box"});
                     this.ClubStudioMessage = this.GREEN;
                 }
                 else if(this.state.countStudio <= 32){
-                    this.setState({countStudio: this.state.countStudio - 1, color: "green"});
+                    this.setState({countStudio: this.state.countStudio - 1, StuColor: "green"});
                     this.ClubStudioMessage = this.GREEN;
                 }
                 else{
-                    this.setState({countStudio: this.state.countStudio - 1, color: "yellow"});
+                    this.setState({countStudio: this.state.countStudio - 1, StuColor: "yellow"});
                     this.ClubStudioMessage = this.YELLOW;
                 }
             }
@@ -166,19 +185,19 @@ class Clubs extends React.Component{
     render(){
         return(
             <div>
-                <div id="Arcanebox">Club Arcane
+                <div id={this.state.ArcColor}>Club Arcane
                     <br></br>
                     <p id="ClubArcaneMessage">{this.ClubArcaneMessage}</p>
                 </div>
-                <div id="Undergroundbox">Club Underground
+                <div id={this.state.UndColor}>Club Underground
                     <br></br>
                     <p id="ClubUndergroundMessage">{this.ClubUndergroundMessage}</p>
                 </div>
-                <div id="Sodabox">Club Soda
+                <div id={this.state.SodColor}>Club Soda
                     <br></br>
                     <p id="ClubSodaMessage">{this.ClubSodaMessage}</p>
                 </div>
-                <div id="Studiobox">Studio 52
+                <div id={this.state.StuColor}>Studio 52
                     <br></br>
                     <p id="StudioMessage">{this.ClubStudioMessage}</p>
                 </div>
