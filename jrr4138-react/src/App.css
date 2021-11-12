@@ -71,8 +71,8 @@ input[type="button"] {
 #ClubArcaneCount, #ClubUndergroundCount, #ClubSodaCount, #StudioCount{
   display: inline-block;
   font-size: 50px;
-  margin-left: 8%;
-  margin-right: 8%;
+  margin-left: 9%;
+  margin-right: 9%;
 }
 
 .App-logo {
