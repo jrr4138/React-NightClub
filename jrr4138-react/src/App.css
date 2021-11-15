@@ -8,6 +8,11 @@ body {
   background-color: #f8e5c8;
 }
 
+/* Code to get random color values (to be used for buttons of clubs)
+ color: expression("rgb(" + Math.floor(Math.random() * 255)
+      + "," + Math.floor(Math.random() * 255) + ","
+      + Math.floor(Math.random() * 255) + ")"); */
+      
 #box {
   display: inline-block;
   font-size: 25px;
