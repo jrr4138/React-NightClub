@@ -186,6 +186,7 @@ class Clubs extends React.Component{
     render(){
         return(
             <div>
+                <Button color="success">increment</Button>{' '}<Button color="danger">decrement</Button>
                 <div id={this.state.ArcColor}>Club Arcane
                     <br></br>
                     <p id="ClubArcaneMessage">{this.ClubArcaneMessage}</p>
