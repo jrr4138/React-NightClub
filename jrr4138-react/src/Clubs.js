@@ -1,5 +1,5 @@
 import React from 'react';
-import {Button, Container, Row, Col} from 'reactstrap';
+import {Button, Container, Row, Col, Modal, ModalHeader, ModalBody, ModalFooter, Card, CardTitle, CardText} from 'reactstrap';
 
 class Clubs extends React.Component{
     
@@ -186,7 +186,57 @@ class Clubs extends React.Component{
     render(){
         return(
             <div>
-                <Button color="success">increment</Button>{' '}<Button color="danger">decrement</Button>
+                <Row> 
+                    <Col sm="3">
+                        <Card body color="primary" inverse>
+                            <CardTitle tag="h5">
+                                Club 1
+                            </CardTitle>
+                            <CardText>
+                                Our club is cool!
+                            </CardText>
+                            <Button color="success">increment</Button>
+                            <Button color="danger">decrement</Button>
+                        </Card>
+                    </Col>
+                    
+                    <Col sm="3">
+                        <Card body color="warning" inverse>
+                            <CardTitle tag="h5">
+                                Club 2
+                            </CardTitle>
+                            <CardText>
+                                Our club is rad!
+                            </CardText>
+                            <Button color="success">increment</Button>
+                            <Button color="danger">decrement</Button>
+                        </Card>
+                    </Col>
+                    <Col sm="3">
+                        <Card body color="info" inverse>
+                            <CardTitle tag="h5">
+                                Club 3
+                            </CardTitle>
+                            <CardText>
+                                Our club is awesome!
+                            </CardText>
+                            <Button color="success">increment</Button>
+                            <Button color="danger">decrement</Button>
+                        </Card>
+                    </Col>
+                    <Col sm="3">
+                        <Card body color="secondary" inverse>
+                            <CardTitle tag="h5">
+                                Club 4
+                            </CardTitle>
+                            <CardText>
+                                Our club is fantastic!
+                            </CardText>
+                            <Button color="success">increment</Button>
+                            <Button color="danger">decrement</Button>
+                        </Card>
+                    </Col>
+                </Row>
                 <div id={this.state.ArcColor}>Club Arcane
                     <br></br>
                     <p id="ClubArcaneMessage">{this.ClubArcaneMessage}</p>
