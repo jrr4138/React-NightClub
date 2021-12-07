@@ -1,3 +1,4 @@
+
 .App {
   text-align: center;
 }
@@ -23,7 +24,7 @@ body {
   border-radius: 15px;
 }
 
-#green {
+.green {
   display: inline-block;
   font-size: 25px;
   background-color: green ;
@@ -33,7 +34,7 @@ body {
   border-radius: 15px;
 }
 
-#yellow {
+.yellow {
   display: inline-block;
   font-size: 25px;
   background-color:yellow ;
@@ -43,7 +44,7 @@ body {
   border-radius: 15px;
 }
 
-#red {
+.red {
   display: inline-block;
   font-size: 25px;
   background-color: red ;
