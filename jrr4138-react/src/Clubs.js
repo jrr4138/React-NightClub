@@ -1,30 +1,30 @@
 import React from 'react';
 import {Button, Container, Row, Col, Modal, ModalHeader, ModalBody, ModalFooter, Card, CardTitle, CardText} from 'reactstrap';
+import AddClub from './AddClub';
+import ClubEdit from './ClubEdit';
 
 class Clubs extends React.Component{
 
     constructor(props) {
         super(props);
-        let values = {name: props.name, location: props.location, music: props.music, yellow: props.yellow, red: props.red}
+        let values = {name: props.name, location: props.location, music: props.music, message: props.message, yellow: props.yellow, red: 10}
         this.state = {count: 0, clubDetails: values}
     };
 
     incrementClub=()=>{
-
+        this.setState({count: this.state.count + 1});
     }
 
     decrementClub=()=>{
-
+        this.setState({count: this.state.count - 1});
     }
 
-    /* Might need some params here, not sure how it will work yet */
-    createClub=()=>{
-
+    editClub=()=>{
+        
     }
 
     render(){
         return(
-            <div>
                 <Row>
                     <Col sm="3">
                         <Card body color="primary" inverse>
@@ -32,73 +32,18 @@ class Clubs extends React.Component{
                                 Club Arcane
                             </CardTitle>
                             <CardText tag="h5">
-                                Music: {}
-                                <br></br>
-                                <br></br>
-                                0
+                                <Row>Location: {this.state.clubDetails.location}</Row>
+                                <Row>Music: {this.state.clubDetails.music}</Row>
+                                <Row>.{this.state.clubDetails.message}</Row>
+                                <Row>{this.state.count}</Row>
                             </CardText>
                             <br></br>
-                            <Button color="success" onClick={this.incrementClub}>increment</Button>
+                            <Button color="success" disabled={this.isIncrementable} onClick={this.incrementClub}>increment</Button>
                             <br></br>
-                            <Button color="danger" onClick={this.decrementClub}>decrement</Button>
+                            <Button color="danger" disabled={this.isDecrementable} onClick={this.decrementClub}>decrement</Button>
                         </Card>
                     </Col>
-
-                    <Col sm="3">
-                        <Card body color="warning" inverse>
-                            <CardTitle tag="h3">
-                                Club Underground
-                            </CardTitle>
-                            <CardText tag="h5">
-                                Our club is rad!
-                                <br></br>
-                                <br></br>
-                                0
-                            </CardText>
-                            <br></br>
-                            <Button color="success" onClick={this.incrementClub}>increment</Button>
-                            <br></br>
-                            <Button color="danger" onClick={this.decrementClub}>decrement</Button>
-                        </Card>
-                    </Col>
-
-                    <Col sm="3">
-                        <Card body color="info" inverse>
-                            <CardTitle tag="h3">
-                                Club Soda
-                            </CardTitle>
-                            <CardText tag="h5">
-                                Our club is awesome!
-                                <br></br>
-                                <br></br>
-                                0
-                            </CardText>
-                            <br></br>
-                            <Button color="success" onClick={this.incrementClub}>increment</Button>
-                            <br></br>
-                            <Button color="danger" onClick={this.decrementClub}>decrement</Button>
-                        </Card>
-                    </Col>
-                    
-                    <Col sm="3">
-                        <Card body color="secondary" inverse>
-                            <CardTitle tag="h3">
-                                Studio 52
-                            </CardTitle>
-                            <CardText tag="h5">
-                                Our club is fantastic!
-                                <br></br>
-                                <br></br>
-                                0
-                            </CardText>
-                            <br></br>
-                            <Button color="success" onClick={this.incrementClub}>increment</Button>
-                            <br></br>
-                            <Button color="danger" onClick={this.decrementClub}>decrement</Button>
-                        </Card>
-                    </Col>
-                </Row><br></br>
-            </div>
+                </Row>
         )
     }
 }
