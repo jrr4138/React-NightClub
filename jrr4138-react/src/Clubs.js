@@ -1,14 +1,13 @@
 import React from 'react';
 import {Button, Container, Row, Col, Modal, ModalHeader, ModalBody, ModalFooter, Card, CardTitle, CardText} from 'reactstrap';
 import AddClub from './AddClub';
-import ClubEdit from './ClubEdit';
+import EditClub from './EditClub';
 
 class Clubs extends React.Component{
 
     constructor(props) {
         super(props);
-        let values = {name: props.name, location: props.location, music: props.music, message: props.message, yellow: 8, red: 10}
-        this.state = {count: 0, clubDetails: values}
+        this.state = {count: 0, name: props.name, location: props.location, music: props.music, message: "", yellow: props.yellow, red: props.red, modal: false}
     };
 
     incrementClub=()=>{
@@ -19,17 +18,29 @@ class Clubs extends React.Component{
         this.setState({count: this.state.count - 1});
     }
 
+    openCloseModal=()=>{
+        this.setState({modal: !this.state.modal})
+    }
+
+    changedValues=(data)=>{
+        this.setState({name: data.name, location: data.location, music: data.music, yellow: data.yellow, red: data.red})
+        this.openCloseModal();
+    }
+
     render(){
-        /* Changes background color of club based on count [capacity limits] */ 
+        /* Changes background color of club based on count [capacity limits] */
         let color;
-        if(this.state.count == this.state.clubDetails.red){ 
+        if(this.state.count == this.state.red){
             color = "danger"; 
+            this.state.message = "No one allowed in!";
         }
-        else if(this.state.count >= this.state.clubDetails.yellow){
+        else if(this.state.count >= this.state.yellow){
             color = "warning";
+            this.state.message = "Warn the bouncers...";
         }
         else {
             color = "success";
+            this.state.message = "Welcome!";
         }
 
         /* Turns buttons on/off depending on count */
@@ -38,32 +49,45 @@ class Clubs extends React.Component{
         if(this.state.count == 0){
             isDecrementable = true;
         }
-        if(this.state.count == this.state.clubDetails.red){
+        if(this.state.count == this.state.red){
+            isIncrementable = true;
+        }
+        if(this.state.name == null){
             isIncrementable = true;
         }
 
         return(
-            <Row>
-                <Col sm="3">
-                    <Card body color={color} inverse>
-                        <CardTitle tag="h3">
-                            Club: {this.state.clubDetails.name}
-                        </CardTitle>
-                        <CardText tag="h5">
-                            <Row>Location: {this.state.clubDetails.location}</Row>
-                            <Row>Music: {this.state.clubDetails.music}</Row>
-                            <Row>Message: {this.state.clubDetails.message}</Row>
-                            <Row>Occupancy: {this.state.count}</Row>
-                        </CardText>
-                        <br></br>
-                        <Button color="primary" disabled={isIncrementable} onClick={this.incrementClub}>Increment</Button>
-                        <br></br>
-                        <Button color="info" disabled={isDecrementable} onClick={this.decrementClub}>Decrement</Button>
-                        <br></br>
-                        <Button color="secondary" onClick>Edit</Button>
-                    </Card>
-                </Col>
-            </Row>
+            <div>
+                <Button color="primary" outline size="lg" >Add Club</Button>
+                    <br></br>
+                    <br></br>
+                <Container fluid="true">
+                    <Row>
+                        <Col sm="3">
+                            <Card body color={color} inverse>
+                                <CardTitle tag="h3">
+                                    Club: {this.state.name}
+                                </CardTitle>
+                                <CardText tag="h5">
+                                    <Row>Location: {this.state.location}</Row>
+                                    <Row>Music: {this.state.music}</Row>
+                                    <Row>Message: {this.state.message}</Row>
+                                    <Row>Occupancy: {this.state.count}</Row>
+                                </CardText>
+                                    <br></br>
+                                <Button color="primary" disabled={isIncrementable} onClick={this.incrementClub}>Increment (+)</Button>
+                                    <br></br>
+                                <Button color="info" disabled={isDecrementable} onClick={this.decrementClub}>Decrement (-)</Button>
+                                    <br></br>
+                                <Button color="secondary" onClick={this.openCloseModal}>Edit</Button>
+                            </Card>
+                        </Col>
+                    </Row>
+                    <Modal isOpen={this.state.modal} toggle={this.openCloseModal}>
+                        <EditClub saveChanges={this.changedValues}/>
+                    </Modal>
+                </Container>
+            </div>
         )
     }
 }

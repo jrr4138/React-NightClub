@@ -6,8 +6,32 @@ class AddClubs extends React.Component{
     constructor(props) {
         super(props);
         let values = {name: "", location: "", music: "", message: "", yellow: 80, red: 100}
-        this.state = {details: values}
+        this.state = {clubDetails: values}
     };
+
+    defineName=()=>{
+
+    }
+
+    defineLocation=()=>{
+
+    }
+
+    defineMusic=()=>{
+
+    }
+
+    defineMessage=()=>{
+
+    }
+
+    defineYellow=()=>{
+
+    }
+
+    defineRed=()=>{
+
+    }
 
     render(){
         return(
